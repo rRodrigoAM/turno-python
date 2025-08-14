@@ -2,13 +2,12 @@ import pygame
 import sys
 import random
 
-# Inicialização do Pygame
 pygame.init()
 
-# --- NOVO: Obtém as dimensões da tela antes de definir o modo ---
+# --- Obtém as dimensões da tela antes de definir o modo ---
 info = pygame.display.Info()
 # Guardamos as dimensões originais da janela para quando o jogo não estiver em tela cheia
-WINDOW_WIDTH, WINDOW_HEIGHT = 800, 600
+WINDOW_WIDTH, WINDOW_HEIGHT = 1280, 720
 FULLSCREEN_WIDTH, FULLSCREEN_HEIGHT = info.current_w, info.current_h
 is_fullscreen = False
 
@@ -17,16 +16,14 @@ WIDTH, HEIGHT = WINDOW_WIDTH, WINDOW_HEIGHT
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Batalha Épica - Versão Mágica")
 
-# --- O resto do seu código permanece o mesmo, mas com uma pequena alteração nas coordenadas ---
-
 # Carregar imagens (certifique-se de que o caminho está correto)
 try:
     background_img = pygame.image.load("assets/background.png")
     # Redimensionar para as dimensões atuais da tela
     background_img = pygame.transform.scale(background_img, (WIDTH, HEIGHT))
-    player_img = pygame.image.load("assets/doom.png")
+    player_img = pygame.image.load("assets/player_img.png")
     player_img = pygame.transform.scale(player_img, (200, 200))
-    enemy_img = pygame.image.load("assets/mulher.png")
+    enemy_img = pygame.image.load("assets/enemy_img.png")
     enemy_img = pygame.transform.scale(enemy_img, (200, 200))
 except pygame.error as e:
     print(f"Erro ao carregar imagem: {e}")
@@ -47,7 +44,7 @@ BLUE = (0, 0, 255)
 GRAY = (50, 50, 50)
 LIGHT_GRAY = (100, 100, 100)
 
-# Classes (as mesmas que você já tem)
+# Classes
 class Personagem:
     def __init__(self, name, hp, stamina, mana, img):
         self.name = name
