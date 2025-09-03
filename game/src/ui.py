@@ -17,7 +17,15 @@ class Button:
                                     self.rect.width * ratio_x, self.rect.height * ratio_y)
         mouse_pos = pygame.mouse.get_pos()
         color = self.hover_color if adjusted_rect.collidepoint(mouse_pos) else self.color
-        pygame.draw.rect(screen, color, adjusted_rect, border_radius=5)
+        # Sombra
+        shadow_rect = adjusted_rect.copy()
+        shadow_rect.x += 4
+        shadow_rect.y += 4
+        pygame.draw.rect(screen, (0, 0, 0, 60), shadow_rect, border_radius=8)
+        # Botão
+        pygame.draw.rect(screen, color, adjusted_rect, border_radius=8)
+        # Borda
+        pygame.draw.rect(screen, (20, 20, 20), adjusted_rect, width=2, border_radius=8)
         draw_text(screen, self.text, adjusted_rect.centerx, adjusted_rect.centery, self.font, WHITE, centered=True)
 
     def is_clicked(self, screen_width, screen_height, base_width, base_height):
