@@ -1,92 +1,62 @@
-# ⚔️ A Esmeralda da Floresta — RPG de Turnos em Python
+# A Esmeralda da Floresta
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![pygame](https://img.shields.io/badge/pygame-2.6-30BF5C?logo=python&logoColor=white)
-![Plataforma](https://img.shields.io/badge/plataforma-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+RPG por turnos desenvolvido em Python e Pygame. O jogador enfrenta esqueletos em nove níveis e o Guardião da Esmeralda no nível 10.
 
-<p align="center">
-  <img src="docs/img/combate.png" alt="Combate por turnos contra um Esqueleto Envenenado" width="880">
-</p>
+![Combate contra um esqueleto envenenado](docs/img/combate.png)
 
-Um RPG de turnos completo feito do zero com **Python e pygame**: avance por 10 níveis de combate contra esqueletos, enfrente o Guardião da Esmeralda e viva a cena final da aventura — com animações, efeitos visuais e interface responsiva, tudo em uma única janela redimensionável.
+## Recursos
 
-## 🎮 Como jogar
+- Quatro ações de combate: ataque, bola de fogo, cura e defesa.
+- Gestão de HP, stamina e mana entre batalhas.
+- Esqueletos envenenados com fraquezas a dano mágico e físico.
+- Chefe final com animação de entrada, combate e encerramento.
+- Interface redimensionável e efeitos de dano.
+- Inimigos com 10% menos HP e dano para reduzir a dificuldade.
 
-Cada ação válida consome seu turno e dá a vez ao inimigo. Gerenciar os três recursos — HP, stamina (ST) e mana (MP) — é o coração do combate:
+## Ações
 
 | Ação | Custo | Efeito |
-| :--- | :--- | :--- |
-| ⚔️ **Ataque** | 11 ST | Causa 14–20 de dano físico |
-| 🔥 **Bola de Fogo** | 16 MP | Causa 26–34 de dano mágico |
-| 💚 **Curar** | 13 MP | Recupera 26–34 de HP |
-| 🛡️ **Defender** | — | Reduz 40% do próximo golpe recebido e recupera até 24 ST e 10 MP |
+| --- | --- | --- |
+| Ataque | 11 ST | 14–20 de dano físico |
+| Bola de Fogo | 16 MP | 26–34 de dano mágico |
+| Curar | 13 MP | Recupera 26–34 HP |
+| Defender | — | Reduz em 40% o próximo golpe e recupera até 24 ST e 10 MP |
 
-O mouse controla tudo: basta clicar nos botões de ação na base da tela.
+## Capturas de tela
 
-## 📈 Progressão
+![Introdução do Guardião da Esmeralda](docs/img/chefe-intro.png)
 
-- Você começa com **120 HP, 60 ST e 50 MP** contra esqueletos que ficam mais fortes a cada nível (mais vida, stamina e dano).
-- Há **25% de chance** de um esqueleto surgir **envenenado**: ele recebe **+40% de dano mágico** e **+10% de dano físico** — uma fraqueza que a interface destaca em verde. Bolas de Fogo são o caminho.
-- Vencer um combate dá uma respirada: **+12 HP, +12 ST e +8 MP**.
-- No **nível 10**, o **Guardião da Esmeralda** desperta com 270 HP em uma cutscene própria — e derrotá-lo desbloqueia a cena final da jornada.
+![Combate contra o Guardião da Esmeralda](docs/img/chefe-luta.png)
 
-## 🖼️ Screenshots
+![Cena de vitória](docs/img/vitoria.png)
 
-<p align="center">
-  <img src="docs/img/chefe-intro.png" alt="Cutscene de introdução do Guardião da Esmeralda" width="420">
-  <img src="docs/img/chefe-luta.png" alt="Batalha final contra o Guardião da Esmeralda" width="420">
-</p>
-<p align="center">
-  <img src="docs/img/vitoria.png" alt="Cena de vitória com a Esmeralda da Floresta" width="420">
-</p>
+## Executar
 
-## 🚀 Executando
+Requer Python 3.10 ou posterior.
 
-É preciso Python 3.10 ou mais recente.
-
-**Windows (PowerShell):**
+Windows:
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python run.py
 ```
 
-**Linux/macOS:**
+Linux ou macOS:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python run.py
 ```
 
-## 🧱 Estrutura do projeto
+## Estrutura
 
+```text
+assets/       Imagens e fontes
+docs/img/     Capturas de tela
+src/          Combate, interface e lógica do jogo
+run.py        Ponto de entrada
 ```
-turno-python/
-├── run.py                  # ponto de entrada
-├── requirements.txt
-├── assets/
-│   ├── fonts/              # fontes do jogo
-│   └── images/             # sprites, chefe e cenário
-├── src/
-│   ├── main.py             # game loop, máquina de estados e renderização
-│   ├── personagem.py       # classe Personagem e regras de combate
-│   ├── combat.py           # log de combate
-│   ├── ui.py               # botões e texto
-│   ├── assets.py           # carregamento de imagens (com fallback)
-│   └── settings.py         # dimensões, cores e fontes
-└── docs/img/               # screenshots
-```
-
-## 🛠️ Destaques técnicos
-
-- **Máquina de estados no game loop** — turno do jogador, turno do inimigo, morte animada, introdução do chefe, vitória e game over fluem por um único loop explícito e legível.
-- **Interface responsiva** — a janela é redimensionável e barras, botões e personagens reposicionam-se por proporção de tela.
-- **Animações com easing** — tremor e flash de dano, colapso do chefe com partículas orbitais, aura pulsante e veneno com bolhas ascendentes usam interpolação (`pytweening`) em vez de movimento bruto.
-- **Combate com tipos de dano** — dano físico e mágico atravessam multiplicadores por fraqueza, bloqueio e escalonamento por nível, com resultados arredondados de forma consistente.
-- **Assets resilientes** — imagens ausentes viram placeholders sinalizados em vez de derrubar o jogo.
-
-Feito com Python, pygame e cafeína. Divirta-se! 🌲💚
