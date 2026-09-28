@@ -14,8 +14,7 @@ BLUE = (0, 0, 255)
 GRAY = (50, 50, 50)
 LIGHT_GRAY = (100, 100, 100)
 
-# Fontes
-# BASE_DIR aponta para a pasta "game"
+# Fontes (BASE_DIR é a raiz do projeto)
 BASE_DIR = Path(__file__).resolve().parents[1]
 FONTS_DIR = BASE_DIR / "assets" / "fonts"
 
