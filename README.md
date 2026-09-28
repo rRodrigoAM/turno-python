@@ -1,4 +1,4 @@
-# A Esmeralda da Floresta
+# Turno Py - A Esmeralda
 
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Pygame 2.6+](https://img.shields.io/badge/Pygame-2.6%2B-30BF5C?logo=pygame&logoColor=white)
