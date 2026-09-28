@@ -1,5 +1,9 @@
 # A Esmeralda da Floresta
 
+![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Pygame 2.6+](https://img.shields.io/badge/Pygame-2.6%2B-30BF5C?logo=pygame&logoColor=white)
+![Plataformas: Windows, Linux e macOS](https://img.shields.io/badge/Plataformas-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+
 RPG por turnos desenvolvido em Python e Pygame. O jogador enfrenta esqueletos em nove níveis e o Guardião da Esmeralda no nível 10.
 
 ![Combate contra um esqueleto envenenado](docs/img/combate.png)
